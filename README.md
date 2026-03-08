@@ -78,11 +78,3 @@ if pnl_change < 0: reward *= 2 (asymmetric loss penalty)
 
 ---
 
-## 📦 Installation
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/yourusername/derivative-hedging-rl.git
-cd derivative-hedging-rl
-pip install -r requirements.txt
