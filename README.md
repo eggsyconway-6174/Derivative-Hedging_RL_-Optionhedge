@@ -57,3 +57,32 @@ After training, the RL agent is evaluated against baseline delta and gamma hedgi
 Continuous value in `[-1, 1]` representing the target delta (hedge ratio). The agent learns to output the desired delta, and the environment adjusts the position accordingly.
 
 ### Reward Function
+reward = pnl_change - transaction_cost
+
+risk_aversion * drawdown_penalty
+
+risk_aversion * hedging_error * 100
+
+risk_aversion * abs(gamma) * 1000
+if pnl_change < 0: reward *= 2 (asymmetric loss penalty)
+
+
+### Training
+- Algorithm: PPO (Proximal Policy Optimization) with 5 epochs per update, GAE(λ=0.95), clipped surrogate objective.
+- Episodes: 150 (each up to 100 steps).
+- Optimiser: Adam with learning rate 3e-4.
+
+### Baselines
+- **Delta hedging**: Maintains delta‑neutral position by setting hedge ratio = -current delta.
+- **Gamma hedging**: Reduces position when gamma exposure is high.
+
+---
+
+## 📦 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/yourusername/derivative-hedging-rl.git
+cd derivative-hedging-rl
+pip install -r requirements.txt
