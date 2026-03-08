@@ -78,3 +78,36 @@ if pnl_change < 0: reward *= 2 (asymmetric loss penalty)
 
 ---
 
+### Training
+- Algorithm: PPO (Proximal Policy Optimization) with 5 epochs per update, GAE(λ=0.95), clipped surrogate objective.
+- Episodes: 150 (each up to 100 steps).
+- Optimiser: Adam with learning rate 3e-4.
+
+### Baselines
+- **Delta hedging**: Maintains delta‑neutral position by setting hedge ratio = -current delta.
+- **Gamma hedging**: Reduces position when gamma exposure is high.
+
+---
+
+## 📦 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/eggsyconway-6174/derivative-hedging-rl.git
+cd derivative-hedging-rl
+pip install -r requirements.txt
+🛠️ Technologies Used
+Python 3.8+
+
+PyTorch – Deep learning framework
+
+NumPy / Pandas – Data manipulation
+
+Matplotlib / Seaborn – Visualisation
+
+yfinance / pandas-datareader / alpha_vantage – Market data
+
+Optuna – Hyperparameter optimisation (optional)
+
+Black / isort – Code formatting
